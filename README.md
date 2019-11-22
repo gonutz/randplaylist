@@ -11,19 +11,24 @@ import (
 )
 
 func main() {
-	r := randplaylist.New(5)
-	for i := 0; i < 5; i++ {
-		fmt.Print(r.Next(), " ")
-	}
-	fmt.Println()
-	for i := 0; i < 5; i++ {
-		fmt.Print(r.Next(), " ")
+	const (
+		trackCountInAlbum = 5
+		albumRepeatCount  = 3
+	)
+
+	r := randplaylist.New(trackCountInAlbum)
+	for i := 0; i < albumRepeatCount; i++ {
+		for j := 0; j < trackCountInAlbum; j++ {
+			fmt.Print(r.Next(), " ")
+		}
+		fmt.Println()
 	}
 }
 
 // Example output:
 // 1 4 2 0 3
 // 1 0 4 3 2
+// 0 4 1 2 3
 ```
 
 The algorithm works as follows:
